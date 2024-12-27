@@ -8,5 +8,17 @@
 <body>
   <h1>My GitHub Repositories</h1>
   <ul id="repo-list"></ul>
+  <script>
+    fetch('https://api.github.com/users/Hosna1100 /repos')
+      .then(response => response.json())
+      .then(data => {
+        let repoList = document.getElementById('repo-list');
+        data.forEach(repo => {
+          let listItem = document.createElement('li');
+          listItem.innerHTML = `<a href="${repo.html_url}">${repo.name}</a> - ${repo.description}`;
+          repoList.appendChild(listItem);
+        });
+      });
+  </script>
 </body>
 </html>
